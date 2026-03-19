@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Star, Info, Zap, Package, Briefcase,
   Mail, FileText, Image, LogOut, ChevronRight, X,
-  Clock, Factory, ShieldCheck, Award, Map, Megaphone, Phone, AlignLeft
+  Clock, Factory, ShieldCheck, Award, Map, Megaphone, Phone, AlignLeft, LayoutGrid
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -21,6 +21,8 @@ const NAV = [
   { to: '/branding', icon: Megaphone, label: 'Branding' },
   { to: '/cta', icon: Phone, label: 'CTA Section' },
   { to: '/footer', icon: AlignLeft, label: 'Footer' },
+  { divider: true, label: 'Visibility' },
+  { to: '/section-visibility', icon: LayoutGrid, label: 'Section Visibility' },
   { divider: true, label: 'Media' },
   { to: '/banner', icon: Image, label: 'Banner Slides' },
   { divider: true, label: 'Enquiries' },

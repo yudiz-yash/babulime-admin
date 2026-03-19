@@ -20,6 +20,7 @@ import DistributionPage from './pages/DistributionPage';
 import BrandingPage from './pages/BrandingPage';
 import CTAPage from './pages/CTAPage';
 import FooterPage from './pages/FooterPage';
+import SectionVisibilityPage from './pages/SectionVisibilityPage';
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="branding" element={<BrandingPage />} />
           <Route path="cta" element={<CTAPage />} />
           <Route path="footer" element={<FooterPage />} />
+          <Route path="section-visibility" element={<SectionVisibilityPage />} />
           <Route path="contact-submissions" element={<ContactSubmissions />} />
           <Route path="applications" element={<CareerApplications />} />
         </Route>
