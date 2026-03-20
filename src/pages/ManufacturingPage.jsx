@@ -65,6 +65,7 @@ export default function ManufacturingPage() {
         <h3 className="font-semibold text-gray-800 text-sm">Section Header</h3>
         <Field label="Badge Text" value={data.badge} onChange={v => setData(d => ({ ...d, badge: v }))} />
         <Field label="Heading" value={data.heading} onChange={v => setData(d => ({ ...d, heading: v }))} />
+        {/* <TextArea label="Description" value={data.description} onChange={v => setData(d => ({ ...d, description: v }))} rows={2} /> */}
       </div>
 
       {/* Steps */}
