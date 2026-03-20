@@ -33,6 +33,10 @@ export default function AboutPage() {
   const addCheck = () => setData(d => ({ ...d, checkItems: [...d.checkItems, ''] }));
   const removeCheck = (i) => setData(d => ({ ...d, checkItems: d.checkItems.filter((_, idx) => idx !== i) }));
 
+  const updateBullet = (i, val) => setData(d => { const b = [...(d.distributionNetwork?.bullets || [])]; b[i] = val; return { ...d, distributionNetwork: { ...d.distributionNetwork, bullets: b } }; });
+  const addBullet = () => setData(d => ({ ...d, distributionNetwork: { ...d.distributionNetwork, bullets: [...(d.distributionNetwork?.bullets || []), ''] } }));
+  const removeBullet = (i) => setData(d => ({ ...d, distributionNetwork: { ...d.distributionNetwork, bullets: d.distributionNetwork.bullets.filter((_, idx) => idx !== i) } }));
+
   if (loading || !data) return <Spinner />;
 
   return (
@@ -65,6 +69,30 @@ export default function AboutPage() {
             <button onClick={() => removeCheck(i)} className="text-red-400 hover:text-red-600 flex-shrink-0"><Trash2 size={15} /></button>
           </div>
         ))}
+      </Card>
+
+      <Card title="Distribution Network" action={<Btn onClick={addBullet}><Plus size={14} /> Add Bullet</Btn>}>
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Sub Heading (e.g. Our Rich)">
+            <Input value={data.distributionNetwork?.subHeading || ''} onChange={e => setData(d => ({ ...d, distributionNetwork: { ...d.distributionNetwork, subHeading: e.target.value } }))} />
+          </Field>
+          <Field label="Title (e.g. Distribution Network)">
+            <Input value={data.distributionNetwork?.title || ''} onChange={e => setData(d => ({ ...d, distributionNetwork: { ...d.distributionNetwork, title: e.target.value } }))} />
+          </Field>
+        </div>
+        <Field label="Bullet Points">
+          <div className="space-y-2">
+            {(data.distributionNetwork?.bullets || []).map((b, i) => (
+              <div key={i} className="flex gap-2">
+                <Input value={b} onChange={e => updateBullet(i, e.target.value)} />
+                <button onClick={() => removeBullet(i)} className="text-red-400 hover:text-red-600 flex-shrink-0"><Trash2 size={15} /></button>
+              </div>
+            ))}
+          </div>
+        </Field>
+        <Field label="Description">
+          <Textarea value={data.distributionNetwork?.description || ''} onChange={e => setData(d => ({ ...d, distributionNetwork: { ...d.distributionNetwork, description: e.target.value } }))} rows={2} />
+        </Field>
       </Card>
 
       <Card title="Stats Badge">
