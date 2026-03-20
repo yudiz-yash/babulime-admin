@@ -7,7 +7,8 @@ const MFG_ICONS = ['Layers', 'Droplets', 'Settings', 'Activity', 'Thermometer', 
 
 export default function ManufacturingPage() {
   const [data, setData] = useState({
-    badge: '', heading: '', description: '',
+    badge: '', heading: '', description: '', subDescription: '',
+    vision: { heading: '', desc1: '', desc2: '' },
     steps: [],
     quality: { heading: '', description: '', items: [], infrastructureHeading: '', infrastructureText: '' },
   });
@@ -66,6 +67,15 @@ export default function ManufacturingPage() {
         <Field label="Badge Text" value={data.badge} onChange={v => setData(d => ({ ...d, badge: v }))} />
         <Field label="Heading" value={data.heading} onChange={v => setData(d => ({ ...d, heading: v }))} />
         {/* <TextArea label="Description" value={data.description} onChange={v => setData(d => ({ ...d, description: v }))} rows={2} /> */}
+        <TextArea label="Sub Description" value={data.subDescription} onChange={v => setData(d => ({ ...d, subDescription: v }))} rows={2} />
+      </div>
+
+      {/* Vision */}
+      <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4">
+        <h3 className="font-semibold text-gray-800 text-sm">Our Vision</h3>
+        <Field label="Vision Heading" value={data.vision?.heading} onChange={v => setData(d => ({ ...d, vision: { ...d.vision, heading: v } }))} />
+        <TextArea label="Vision Description 1" value={data.vision?.desc1} onChange={v => setData(d => ({ ...d, vision: { ...d.vision, desc1: v } }))} rows={3} />
+        <TextArea label="Vision Description 2" value={data.vision?.desc2} onChange={v => setData(d => ({ ...d, vision: { ...d.vision, desc2: v } }))} rows={3} />
       </div>
 
       {/* Steps */}
