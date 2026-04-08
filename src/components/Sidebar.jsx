@@ -25,9 +25,11 @@ const NAV = [
   { to: '/section-visibility', icon: LayoutGrid, label: 'Section Visibility' },
   { divider: true, label: 'Media' },
   { to: '/banner', icon: Image, label: 'Banner Slides' },
+  { divider: true, label: 'Hiring' },
+  { to: '/careers', icon: Briefcase, label: 'Career Positions' },
+  { to: '/applications', icon: FileText, label: 'Applications' },
   { divider: true, label: 'Enquiries' },
   { to: '/contact-submissions', icon: Mail, label: 'Contact Enquiries' },
-  { to: '/applications', icon: FileText, label: 'Applications' },
 ];
 
 export default function Sidebar({ open, onClose }) {
