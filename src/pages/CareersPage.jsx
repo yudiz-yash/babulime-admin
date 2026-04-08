@@ -3,7 +3,7 @@ import { Plus, Trash2, Edit2, Save, X, Loader, MapPin, Building, Clock } from 'l
 import toast from 'react-hot-toast';
 import api from '../api/axios';
 
-const EMPTY = { title: '', department: '', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: false, isActive: true };
+const EMPTY = { title: '', department: '', location: 'Rajkot, Gujarat', type: 'Full-time', description: '', isNew: false, isActive: true };
 
 export default function CareersPage() {
   const [positions, setPositions] = useState([]);
@@ -77,6 +77,10 @@ export default function CareersPage() {
                 <option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option>
               </select>
             </div>
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-1 block">Description (optional)</label>
+            <textarea value={editItem.description} onChange={e => setEditItem(i => ({ ...i, description: e.target.value }))} placeholder="Brief job description or requirements..." rows={3} className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none" />
           </div>
           <div className="flex items-center gap-6">
             <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
