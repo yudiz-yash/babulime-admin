@@ -125,7 +125,7 @@ export default function CareerApplications() {
               )}
 
               {selected.resumeUrl && (
-                <a href={`http://localhost:5000${selected.resumeUrl}`} target="_blank" rel="noreferrer"
+                <a href={selected.resumeUrl} download={selected.resumeOriginalName || 'resume'}
                   className="flex items-center gap-2 border border-purple-200 text-purple-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-50">
                   <Download size={14} /> Download Resume ({selected.resumeOriginalName || 'resume'})
                 </a>
